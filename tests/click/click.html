@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #movingImage {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="instruct">Click to begin.  Each click gets harder.  Good luck!</div>
+    <div id="counter">Counter: 0</div>
+    <div id="speed">Speed: 2000</div>
+    <img id="movingImage" src="./click.png" alt="Moving Image" />
+    
+    <script>
+      let counter = 0;
+      let movingImage = document.getElementById("movingImage");
+      let speed = 2000;
+      let intervalId = 0;
+      movingImage.style.top = window.innerHeight / 2 + "px";
+      movingImage.style.left = window.innerWidth / 2 + "px";
+      
+      function moveImage() {
+        let x = Math.floor(Math.random() * window.innerWidth);
+        let y = Math.floor(Math.random() * window.innerHeight);
+        movingImage.style.top = y + "px";
+        movingImage.style.left = x + "px";
+      }
+      
+      movingImage.addEventListener("click", function() {
+        counter++;
+        document.getElementById("counter").innerHTML = "Counter: " + counter;
+        speed -= 50;
+        document.getElementById("speed").innerHTML = "Speed: " + speed;
+        clearInterval(intervalId);
+        intervalId = setInterval(moveImage, speed);
+      });
+      
+      
+      window.addEventListener("resize", function() {
+        moveImage();
+      });
+    </script>
+  </body>
+</html>
