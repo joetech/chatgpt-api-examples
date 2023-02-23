@@ -25,11 +25,9 @@ First, we used the chat interface to ask for the code needed.  Here's what I typ
 
 ...and it explained what the code does:
 
-```
-This code creates an HTML page with an image and a counter. The image moves randomly around the screen, and every time the user clicks on it, the counter increments by one. The higher the counter, the faster the image moves. The code achieves this by using two setInterval() functions, one to move the image every 10 milliseconds, and another to update the speed every second.
+```This code creates an HTML page with an image and a counter. The image moves randomly around the screen, and every time the user clicks on it, the counter increments by one. The higher the counter, the faster the image moves. The code achieves this by using two setInterval() functions, one to move the image every 10 milliseconds, and another to update the speed every second.```
 
-Note that the code uses window.innerWidth and window.innerHeight to get the dimensions of the screen. It also uses the addEventListener() method to listen for events such as clicks and window resizes. Finally, the code uses the style property to change the position of the image.
-```
+```Note that the code uses window.innerWidth and window.innerHeight to get the dimensions of the screen. It also uses the addEventListener() method to listen for events such as clicks and window resizes. Finally, the code uses the style property to change the position of the image.```
 
 This was a good start, but it was starting the speed at 1 millisecond, so I asked for a small correction:
 
@@ -37,11 +35,9 @@ This was a good start, but it was starting the speed at 1 millisecond, so I aske
 
 It complied and even explained the changes AND added a safety check I would have figured out in a few minutes, but now didn't have to even think about:
 
-```
-The main change is that we've updated the speed variable to start at 2000 milliseconds (2 seconds) instead of 1. We then decrement speed by 50 milliseconds every time the image is clicked. We've also added a check to ensure that speed does not go below 50 milliseconds.
+```The main change is that we've updated the speed variable to start at 2000 milliseconds (2 seconds) instead of 1. We then decrement speed by 50 milliseconds every time the image is clicked. We've also added a check to ensure that speed does not go below 50 milliseconds.```
 
-Additionally, we've updated the second setInterval() function to set the minimum value of speed to 50 milliseconds, in case it gets too low due to rapid clicks.
-```
+```Additionally, we've updated the second setInterval() function to set the minimum value of speed to 50 milliseconds, in case it gets too low due to rapid clicks.```
 
 Great.  After testing, I found that it didn't fully work as expected, but here's where it was less effort to just tweak the code than to try to perfectly word-craft the changes I needed, so I did that.
 
